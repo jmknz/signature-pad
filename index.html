@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signature Pad</title>
+
+  <script src="https://cdn.tailwindcss.com"></script> <!-- for pototyping purposes -->
+  <style>
+    #error::before {
+      background: 0 0;
+      background-color: #1b1b1b;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd' /%3E%3C/svg%3E") no-repeat center/contain;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd' /%3E%3C/svg%3E") no-repeat center/contain;
+      width: 2rem;
+      content: "";
+      display: block;
+      height: 3.5rem;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+
+<body class="bg-[#005ea2]">
+  <h1 class="text-4xl font-bold text-white px-6 pt-2">Digital Signature</h1>
+  <form id="signature-pad" class="border rounded w-full max-w-screen-md mx-auto mt-6 shadow-md bg-white">
+    <section>
+      <h2 class="text-3xl bg-gray-100 p-2 border-b font-semibold">Enter your signature</h2>
+      <div class="mt-2 p-2">
+        <canvas aria-label="Signature Box" aria-describedby="error" class="border w-full rounded focus:outline outline-offset-4 outline-[#2491ff] outline-4 h-48" tabindex="0"></canvas>
+        <p class="text-sm text-[#71767a]">Please Sign Above.</p>
+        <div id="error" role="alert" class="border-l-4 border-l-[#d54309] bg-[#f4e3db] flex mt-2 py-2 hidden">
+          <div class="pl-12">
+            <h3 class="font-bold text-2xl">Error</h3>
+            <p>Please provide signature first.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="flex justify-end p-2 gap-4">
+      <button type="button" data-action="save" class="bg-[#005ea2] text-white font-medium rounded border border-[#005ea2] py-3 px-4 hover:bg-[#1a4480] hover:border-[#1a4480] active:bg-[#162e51] active:border-[#162e51] focus:outline outline-offset-4 outline-[#2491ff] outline-4">
+        Save Signature
+      </button>
+      <button type="button" data-action="clear" class="bg-[#757575] text-white font-medium rounded border border-[#757575] py-3 px-4 hover:bg-[#5c5c5c] hover:border-[#5c5c5c] active:bg-[#2e2e2e] active:border-[#2e2e2e] focus:outline outline-offset-4 outline-[#2491ff] outline-4">
+        Clear
+      </button>
+    </footer>
+  </form>
+  <script src="index.js" type="module"></script>
+</body>
+
+</html>
